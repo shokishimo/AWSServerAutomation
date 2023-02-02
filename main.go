@@ -2,16 +2,29 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"net/http"
-	"github.com/shokishimo/AWSServerAutomation/server"
+	"time"
 )
 
 func main() {
-	srvMux := server.ServeMux()
-	fmt.Println("Server is running")
-	if err := http.ListenAndServe(":8080", srvMux); err != nil {
-		log.Fatal("Error in running the server")
-		fmt.Printf("e: %v\n", err)
+	for {
+		makeRequest()
+		time.Sleep(14*time.Minute)
+	}
+}
+
+func makeRequest() {
+	_, err := http.Get("https://distinctionality.onrender.com/")
+	if err != nil {
+		fmt.Println("Error making request to Distinctionality:", err)
+	} else {
+		fmt.Println("Request to Distinctionality Succeeded.")
+	}
+
+	_, err = http.Get("https://one-tap.onrender.com")
+	if err != nil {
+		fmt.Println("Error making request to One Tap:", err)
+	} else {
+		fmt.Println("Request to One Tap Succeeded.")
 	}
 }
