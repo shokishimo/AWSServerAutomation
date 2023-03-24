@@ -14,17 +14,10 @@ func main() {
 }
 
 func makeRequest() {
-	_, err := http.Get("https://distinctionality.onrender.com/")
+	_, err := http.Get("https://wbk.onrender.com/")
 	if err != nil {
-		fmt.Println("Error making request to Distinctionality:", err)
+		fmt.Println("Error making request to WBK website:", err)
 	} else {
-		fmt.Println("Request to Distinctionality Succeeded.")
-	}
-
-	_, err = http.Get("https://one-tap.onrender.com")
-	if err != nil {
-		fmt.Println("Error making request to One Tap:", err)
-	} else {
-		fmt.Println("Request to One Tap Succeeded.")
+		fmt.Println("Request to WBK website Succeeded.")
 	}
 }
